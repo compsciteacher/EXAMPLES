@@ -11,7 +11,8 @@
  */
 package login;
 import java.util.*;
-
+import java.io.*;
+import sun.audio.*;
 /**
  *
  * Right now we have only used public and void classes
@@ -21,12 +22,13 @@ public class Login {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // TODO code application logic here
         CSAInfo();
         dateTime();
         firstGreeting();
         loginCheck();
+        
     }
     /**
      * @param args the command line arguments
@@ -58,14 +60,16 @@ public class Login {
      * initial greeting that asks for user name and states they are gettig on the school's
      * system. 
      */
-    public static void firstGreeting(){
+    public static void firstGreeting() throws Exception{
         Scanner nameIn = new Scanner(System.in);
         
         System.out.println("");
         System.out.println("----------------------------------------");
         System.out.println("What is your name?");
         String name = nameIn.nextLine();
-        
+        if (name.equals("John Cena")){
+            johnCENA();
+        }
         System.out.println("Hello, "+name+" welcome to Chaparral Star Academy!");
     }
     /**
@@ -87,8 +91,20 @@ public class Login {
             return;
         
         }
-        
+       
     }
-
+public static void johnCENA() 
+  throws Exception
+  {
+    // open the sound file as a Java input stream
+    String gongFile = "johncena.au";
+    InputStream in = new FileInputStream(gongFile);
+ 
+    // create an audiostream from the inputstream
+    AudioStream audioStream = new AudioStream(in);
+ 
+    // play the audio clip with the audioplayer class
+    AudioPlayer.player.start(audioStream);
+  }
     
 }
