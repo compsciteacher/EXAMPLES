@@ -31,7 +31,9 @@ def loginoffline():
     password_rowgetnum=3 #master_row to the schools student list
     for hosts_rowyo in students:
         row = 1
-        username=username.replace("@schoolname.com","")#student emails are 4 digits@schoolname.com, for some reason the students wanted to just get rid of school name? I just let it be
+#student emails are 4 digits@schoolname.com, for some reason 
+#the students wanted to just get rid of school name? I just let it be
+        username=username.replace("@schoolname.com","")
         hosts_rowyo[username_rowgetnumyo]=hosts_rowyo[username_rowgetnumyo].replace("@schoolname.com","")
         hosts_rowyo[username_rowgetnumyo]=hosts_rowyo[username_rowgetnumyo].zfill(4)
         if (username == hosts_rowyo[username_rowgetnumyo]) & (password == hosts_rowyo[password_rowgetnum]):
@@ -44,7 +46,9 @@ def loginoffline():
             os.system("clear")
             print("Logging in complete! Plug in your chromebook now;")
             f.write(username+" "+str(datetime.now())+"\n")
-            f.close()#this line was actually important. The students weren't closing the doc, and the appending was getting all messed up. Took them time to problem solve this actually
+#this next line was actually important. The students weren't closing the doc, 
+#and the appending was getting all messed up. Took them time to problem solve this actually
+            f.close()
             start = time.time()
             while True :#powers on the powerswitch
                 io.output(power_pin, True)
